@@ -1,0 +1,30 @@
+name: Test Self-Hosted Runner
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Show server info
+        run: |
+          echo "=== Server Information ==="
+          hostname
+          whoami
+          pwd
+          date
+          echo "=== Disk Space ==="
+          df -h
+          echo "=== Memory ==="
+          free -h
+      
+      - name: Create test file
+        run: |
+          echo "Self-hosted runner works!" > test.txt
+          cat test.txt
