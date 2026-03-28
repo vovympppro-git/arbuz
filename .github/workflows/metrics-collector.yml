@@ -2,27 +2,26 @@ name: Metrics Collector
 
 on:
   schedule:
-    # Запуск каждый день в 00:00 UTC
-    - cron: '0 0 * * *'
-  workflow_dispatch:  # Ручной запуск
+    - cron: '0 0 * * *'  # Каждый день в 00:00 UTC
+  workflow_dispatch:      # Ручной запуск
   push:
-    branches: [main, develop]
+    branches: [main, master]  # Запуск при пуше в main
 
 jobs:
   collect-metrics:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      issues: read
+      contents: write      # Важно для деплоя на gh-pages
       pull-requests: read
+      issues: read
       actions: read
       
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Полная история для анализа
-        
+          fetch-depth: 0
+          
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -35,6 +34,7 @@ jobs:
       - name: Collect metrics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.repository }}
         run: |
           python scripts/metrics_collector.py
           
@@ -44,17 +44,14 @@ jobs:
           name: metrics-data
           path: metrics/
           
-      - name: Update GitHub Pages dashboard
-        if: github.ref == 'refs/heads/main'
-        run: |
-          # Копируем метрики для дашборда
-          mkdir -p docs/data
-          cp metrics/*.json docs/data/
-          
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
+      # 👇 ВОТ СЮДА ДОБАВЬТЕ ЭТОТ БЛОК 👇
+      - name: Deploy Dashboard
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4  # Используйте v4, не v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
           publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Update metrics dashboard'
