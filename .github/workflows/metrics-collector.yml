@@ -1,0 +1,60 @@
+name: Metrics Collector
+
+on:
+  schedule:
+    # Запуск каждый день в 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # Ручной запуск
+  push:
+    branches: [main, develop]
+
+jobs:
+  collect-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+      actions: read
+      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Полная история для анализа
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install pygithub pandas python-dateutil requests
+          
+      - name: Collect metrics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/metrics_collector.py
+          
+      - name: Upload metrics as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrics-data
+          path: metrics/
+          
+      - name: Update GitHub Pages dashboard
+        if: github.ref == 'refs/heads/main'
+        run: |
+          # Копируем метрики для дашборда
+          mkdir -p docs/data
+          cp metrics/*.json docs/data/
+          
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
