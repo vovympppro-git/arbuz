@@ -1,24 +1,24 @@
 {
-  "timestamp": "2026-03-28T07:53:53.356685+00:00",
+  "timestamp": "2026-03-28T07:58:04.821271+00:00",
   "repository": "AVD138/arbuz",
   "commits": {
-    "total_commits_90d": 35,
-    "avg_daily": 0.39,
+    "total_commits_90d": 38,
+    "avg_daily": 0.42,
     "daily": {
-      "2026-03-28": 20,
+      "2026-03-28": 23,
       "2026-03-25": 5,
       "2026-03-24": 3,
       "2026-03-19": 3,
       "2026-03-18": 4
     },
     "weekly": {
-      "13": 28,
+      "13": 31,
       "12": 7
     },
     "top_authors": {
+      "root": 16,
       "vovympppro-git": 15,
-      "root": 14,
-      "github-actions[bot]": 5,
+      "github-actions[bot]": 6,
       "WinCli": 1
     }
   },
