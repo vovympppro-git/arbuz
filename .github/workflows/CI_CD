@@ -3,32 +3,29 @@ name: CI/CD Pipeline
 # Когда запускать:
 on:
   push:               # На каждый push
-    branches: [ main ]
+    branches: [ master ]      # ← было main, стало master
   pull_request:       # На каждый Pull Request
-    branches: [ main ]
+    branches: [ master ]      # ← было main, стало master
 
 # Что делать:
 jobs:
   test-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. Скачать код из репозитория
       - uses: actions/checkout@v4
       
-      # 2. Установить Python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
-      # 3. Запустить тесты (CI)
       - name: Run tests
         run: |
           pip install pytest
           pytest tests/
       
-      # 4. Если мы в main И тесты прошли - задеплоить (CD)
+      # Условие для деплоя тоже меняем
       - name: Deploy to server
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'  # ← было main, стало master
         run: |
-          # Здесь команда для отправки кода на ваш сервер
           echo "Деплоим на продакшен..."
+          # ваши команды деплоя
