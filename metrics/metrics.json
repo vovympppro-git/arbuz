@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-03-30T14:25:55.257612+00:00",
+  "timestamp": "2026-03-30T14:47:16.060467+00:00",
   "repository": "AVD138/arbuz",
   "commits": {
-    "total_commits_90d": 96,
-    "avg_daily": 1.07,
+    "total_commits_90d": 102,
+    "avg_daily": 1.13,
     "daily": {
-      "2026-03-30": 36,
-      "2026-03-29": 18,
-      "2026-03-28": 27,
-      "2026-03-25": 5,
+      "2026-03-30": 38,
+      "2026-03-29": 20,
+      "2026-03-28": 28,
+      "2026-03-25": 6,
       "2026-03-24": 3,
       "2026-03-19": 3,
       "2026-03-18": 4
     },
     "weekly": {
-      "14": 36,
-      "13": 53,
+      "14": 38,
+      "13": 57,
       "12": 7
     },
     "top_authors": {
-      "vovympppro-git": 44,
-      "github-actions[bot]": 33,
-      "root": 18,
+      "vovympppro-git": 45,
+      "github-actions[bot]": 34,
+      "root": 22,
       "WinCli": 1
     }
   },
@@ -49,11 +49,11 @@
     "debt_ratio": 0.0
   },
   "pull_requests": {
-    "merged_90d": 0,
+    "merged_90d": 1,
     "closed_not_merged_90d": 0,
-    "open_prs": 2,
-    "merge_rate": 0.0,
-    "avg_pr_size_lines": 0.0,
+    "open_prs": 1,
+    "merge_rate": 100.0,
+    "avg_pr_size_lines": 3.0,
     "prs_with_conflicts": 0
   },
   "issues": {
@@ -69,7 +69,7 @@
     "top_contributors": [
       {
         "name": "vovympppro-git",
-        "commits": 44,
+        "commits": 45,
         "avatar": "https://avatars.githubusercontent.com/u/269192610?v=4"
       },
       {
