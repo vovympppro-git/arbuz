@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-03-30T14:47:16.060467+00:00",
+  "timestamp": "2026-03-30T15:08:04.852355+00:00",
   "repository": "AVD138/arbuz",
   "commits": {
-    "total_commits_90d": 102,
-    "avg_daily": 1.13,
+    "total_commits_90d": 105,
+    "avg_daily": 1.17,
     "daily": {
-      "2026-03-30": 38,
+      "2026-03-30": 41,
       "2026-03-29": 20,
       "2026-03-28": 28,
       "2026-03-25": 6,
@@ -14,23 +14,26 @@
       "2026-03-18": 4
     },
     "weekly": {
-      "14": 38,
+      "14": 41,
       "13": 57,
       "12": 7
     },
     "top_authors": {
-      "vovympppro-git": 45,
-      "github-actions[bot]": 34,
+      "vovympppro-git": 47,
+      "github-actions[bot]": 35,
       "root": 22,
       "WinCli": 1
     }
   },
   "code_review": {
-    "avg_review_time_hours": 0,
-    "median_review_time_hours": 0,
-    "prs_reviewed": 0,
-    "avg_comments_per_pr": 0.0,
-    "top_reviewers": {}
+    "avg_review_time_hours": 146.12,
+    "median_review_time_hours": 146.12,
+    "prs_reviewed": 1,
+    "avg_comments_per_pr": 1.0,
+    "top_reviewers": {
+      "Vovy111": 1,
+      "github-advanced-security[bot]": 1
+    }
   },
   "releases": {
     "total_releases": 0,
@@ -49,11 +52,11 @@
     "debt_ratio": 0.0
   },
   "pull_requests": {
-    "merged_90d": 1,
+    "merged_90d": 2,
     "closed_not_merged_90d": 0,
-    "open_prs": 1,
+    "open_prs": 0,
     "merge_rate": 100.0,
-    "avg_pr_size_lines": 3.0,
+    "avg_pr_size_lines": 95.5,
     "prs_with_conflicts": 0
   },
   "issues": {
@@ -69,7 +72,7 @@
     "top_contributors": [
       {
         "name": "vovympppro-git",
-        "commits": 45,
+        "commits": 47,
         "avatar": "https://avatars.githubusercontent.com/u/269192610?v=4"
       },
       {
