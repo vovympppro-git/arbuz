@@ -1,7 +1,7 @@
 metric,value
-total_commits_90d,41.0
+total_commits_90d,102.0
 avg_review_time_hours,0.0
 total_releases,0.0
 open_debt_issues,0.0
-merge_rate,0.0
+merge_rate,100.0
 avg_close_time_days,0.0
