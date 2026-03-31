@@ -1,29 +1,21 @@
-name: CI
-on: [pull_request]
+name: CI for project
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  check-lint:
+  hello-world:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.12.2'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run linter
-        run: npm run lint
-  check-tests:
-          runs-on: ubuntu-latest
-          steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.12.2'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Say Hello
+      run: echo "Hello, GitHub Actions! This is my first workflow!"
+      
+    - name: Show date
+      run: date

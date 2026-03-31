@@ -1,0 +1,31 @@
+name: CI/CD Pipeline
+
+# Когда запускать:
+on:
+  push:               # На каждый push
+    branches: [ master ]      # ← было main, стало master
+  pull_request:       # На каждый Pull Request
+    branches: [ master ]      # ← было main, стало master
+
+# Что делать:
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest tests/
+      
+      # Условие для деплоя тоже меняем
+      - name: Deploy to server
+        if: github.ref == 'refs/heads/master'  # ← было main, стало master
+        run: |
+          echo "Деплоим на продакшен..."
+          # ваши команды деплоя
