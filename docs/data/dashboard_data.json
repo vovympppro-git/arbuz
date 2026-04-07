@@ -1,10 +1,11 @@
 {
-  "timestamp": "2026-04-06T06:18:03.982255+00:00",
+  "timestamp": "2026-04-07T05:58:46.311458+00:00",
   "repository": "AVD138/arbuz",
   "commits": {
-    "total_commits_90d": 128,
-    "avg_daily": 1.42,
+    "total_commits_90d": 129,
+    "avg_daily": 1.43,
     "daily": {
+      "2026-04-06": 1,
       "2026-04-05": 1,
       "2026-04-04": 1,
       "2026-04-03": 1,
@@ -20,13 +21,14 @@
       "2026-03-18": 4
     },
     "weekly": {
+      "15": 1,
       "14": 64,
       "13": 57,
       "12": 7
     },
     "top_authors": {
+      "github-actions[bot]": 51,
       "vovympppro-git": 51,
-      "github-actions[bot]": 50,
       "root": 22,
       "Vovy111": 3,
       "almaznik1": 1
@@ -38,8 +40,8 @@
     "prs_reviewed": 1,
     "avg_comments_per_pr": 1.0,
     "top_reviewers": {
-      "Vovy111": 1,
-      "github-advanced-security[bot]": 1
+      "github-advanced-security[bot]": 1,
+      "Vovy111": 1
     }
   },
   "releases": {
@@ -78,14 +80,14 @@
     "active_contributors_90d": 4,
     "top_contributors": [
       {
-        "name": "vovympppro-git",
-        "commits": 51,
-        "avatar": "https://avatars.githubusercontent.com/u/269192610?v=4"
-      },
-      {
         "name": "github-actions[bot]",
         "commits": 0,
         "avatar": "https://avatars.githubusercontent.com/in/15368?v=4"
+      },
+      {
+        "name": "vovympppro-git",
+        "commits": 51,
+        "avatar": "https://avatars.githubusercontent.com/u/269192610?v=4"
       },
       {
         "name": "Vovy111",
